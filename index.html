@@ -6,68 +6,73 @@ body{font-family:'Courier New',monospace;background:#080810;color:#ddd;min-heigh
   --red:#c0392b;--red2:#e74c3c;--gold:#f39c12;
   --surf:#10101a;--surf2:#181824;--surf3:#202030;--surf4:#282838;
   --bord:#2c2c40;--bord2:#3a3a52;
-  --gcl:#27ae60;--gdk:#1e8449;
-  --yel:#f1c40f;--ora:#e67e22;--pink:#d63384;
+  --g-cl:#27ae60;--g-dk:#1e8449;
+  --yel:#f1c40f;--ora:#e67e22;--pink:#d63384;--gray:#7f8c8d;
 }
 .sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)}
-#auth{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:2rem;background:#080810}
-.abox{background:var(--surf);border:1px solid var(--bord);border-top:3px solid var(--red);width:100%;max-width:400px;padding:2.5rem}
-.alo{text-align:center;margin-bottom:2rem}
-.disc{display:inline-block;width:52px;height:52px;border-radius:50%;background:conic-gradient(var(--red) 0deg,#181824 55deg,#96281b 110deg,#181824 165deg,var(--red) 220deg,#181824 275deg,var(--red) 330deg,#181824 360deg);border:3px solid var(--bord2);margin-bottom:10px;position:relative}
-.disc::after{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:13px;height:13px;border-radius:50%;background:var(--surf);border:2px solid var(--bord2)}
-.lmain{font-size:20px;font-weight:700;letter-spacing:4px;color:#fff;text-transform:uppercase}
-.lsub{font-size:9px;letter-spacing:7px;color:var(--red);text-transform:uppercase;margin-top:3px}
-.atabs{display:flex;margin-bottom:1.5rem;border:1px solid var(--bord)}
-.atab{flex:1;padding:9px;background:none;border:none;color:#888;cursor:pointer;font-family:inherit;font-size:11px;letter-spacing:2px;text-transform:uppercase;transition:all .2s}
-.atab.on{background:var(--red);color:#fff}
-.fd{margin-bottom:14px}
-.fd label{display:block;font-size:10px;letter-spacing:2px;color:#888;margin-bottom:5px;text-transform:uppercase}
-.fd input{width:100%;padding:9px 12px;background:var(--surf2);border:1px solid var(--bord);color:#ddd;font-family:inherit;font-size:13px;outline:none;transition:border-color .2s}
-.fd input:focus{border-color:var(--red)}
-.bp{width:100%;padding:11px;background:var(--red);border:none;color:#fff;font-family:inherit;font-size:11px;letter-spacing:3px;text-transform:uppercase;cursor:pointer;transition:background .2s;margin-top:4px}
-.bp:hover{background:var(--red2)}
-.amsg{font-size:11px;color:var(--red2);margin-top:8px;text-align:center;min-height:16px}
+
+#auth-screen{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:2rem;background:#080810}
+.auth-box{background:var(--surf);border:1px solid var(--bord);border-top:3px solid var(--red);width:100%;max-width:400px;padding:2.5rem}
+.auth-logo{text-align:center;margin-bottom:2rem}
+.logo-disc{display:inline-block;width:52px;height:52px;border-radius:50%;background:conic-gradient(var(--red) 0deg,#181824 55deg,#96281b 110deg,#181824 165deg,var(--red) 220deg,#181824 275deg,var(--red) 330deg,#181824 360deg);border:3px solid var(--bord2);margin-bottom:10px;position:relative}
+.logo-disc::after{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:13px;height:13px;border-radius:50%;background:var(--surf);border:2px solid var(--bord2)}
+.logo-main{font-size:20px;font-weight:700;letter-spacing:4px;color:#fff;text-transform:uppercase}
+.logo-sub{font-size:9px;letter-spacing:7px;color:var(--red);text-transform:uppercase;margin-top:3px}
+.auth-tabs{display:flex;margin-bottom:1.5rem;border:1px solid var(--bord)}
+.auth-tab{flex:1;padding:9px;background:none;border:none;color:#888;cursor:pointer;font-family:inherit;font-size:11px;letter-spacing:2px;text-transform:uppercase;transition:all .2s}
+.auth-tab.active{background:var(--red);color:#fff}
+.field{margin-bottom:14px}
+.field label{display:block;font-size:10px;letter-spacing:2px;color:#888;margin-bottom:5px;text-transform:uppercase}
+.field input{width:100%;padding:9px 12px;background:var(--surf2);border:1px solid var(--bord);color:#ddd;font-family:inherit;font-size:13px;outline:none;transition:border-color .2s}
+.field input:focus{border-color:var(--red)}
+.btn-prim{width:100%;padding:11px;background:var(--red);border:none;color:#fff;font-family:inherit;font-size:11px;letter-spacing:3px;text-transform:uppercase;cursor:pointer;transition:background .2s;margin-top:4px}
+.btn-prim:hover{background:var(--red2)}
+.auth-msg{font-size:11px;color:var(--red2);margin-top:8px;text-align:center;min-height:16px}
+
 #app{display:none;flex-direction:column;min-height:100vh}
-.tb{background:var(--surf);border-bottom:2px solid var(--red);padding:0 1.5rem;display:flex;align-items:center;justify-content:space-between;height:54px;position:sticky;top:0;z-index:100}
-.tbl{font-size:13px;font-weight:700;letter-spacing:3px;color:#fff;text-transform:uppercase}
-.tbl span{color:var(--red)}
-.tbr{display:flex;align-items:center;gap:10px}
-.tbu{display:flex;align-items:center;gap:9px;cursor:pointer;padding:5px 9px;border:1px solid var(--bord);transition:border-color .2s}
-.tbu:hover{border-color:var(--red)}
-.avsm{width:28px;height:28px;border-radius:50%;background:var(--red);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:#fff;overflow:hidden}
-.avsm img{width:100%;height:100%;object-fit:cover}
-.unm{font-size:12px;color:#ddd}
-.bic{background:none;border:1px solid var(--bord);color:#888;padding:5px 10px;cursor:pointer;font-family:inherit;font-size:10px;letter-spacing:1px;transition:all .2s;text-transform:uppercase}
-.bic:hover{border-color:var(--red);color:var(--red)}
-.tlb{background:var(--surf2);border-bottom:1px solid var(--bord);padding:10px 1.5rem;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
-.srw{flex:1;min-width:180px;position:relative}
-.srw input{width:100%;padding:9px 14px 9px 34px;background:var(--surf3);border:1px solid var(--bord);color:#ddd;font-family:inherit;font-size:13px;outline:none;transition:border-color .2s}
-.srw input:focus{border-color:var(--red)}
-.sic{position:absolute;left:11px;top:50%;transform:translateY(-50%);font-size:14px;color:#666}
-.fls{padding:9px 10px;background:var(--surf3);border:1px solid var(--bord);color:#ddd;font-family:inherit;font-size:11px;cursor:pointer;outline:none;letter-spacing:1px}
-.fls:focus{border-color:var(--red)}
-.badd{padding:9px 16px;background:var(--red);border:none;color:#fff;font-family:inherit;font-size:11px;letter-spacing:2px;text-transform:uppercase;cursor:pointer;transition:background .2s;white-space:nowrap}
-.badd:hover{background:var(--red2)}
-.stb{background:var(--surf);border-bottom:1px solid var(--bord);padding:7px 1.5rem;display:flex;gap:20px;flex-wrap:wrap}
+.topbar{background:var(--surf);border-bottom:2px solid var(--red);padding:0 1.5rem;display:flex;align-items:center;justify-content:space-between;height:54px;position:sticky;top:0;z-index:100}
+.topbar-logo{font-size:13px;font-weight:700;letter-spacing:3px;color:#fff;text-transform:uppercase}
+.topbar-logo span{color:var(--red)}
+.topbar-right{display:flex;align-items:center;gap:10px}
+.topbar-user{display:flex;align-items:center;gap:9px;cursor:pointer;padding:5px 9px;border:1px solid var(--bord);transition:border-color .2s}
+.topbar-user:hover{border-color:var(--red)}
+.av-sm{width:28px;height:28px;border-radius:50%;background:var(--red);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:#fff;overflow:hidden}
+.av-sm img{width:100%;height:100%;object-fit:cover}
+.user-nm{font-size:12px;color:#ddd}
+.btn-ico{background:none;border:1px solid var(--bord);color:#888;padding:5px 10px;cursor:pointer;font-family:inherit;font-size:10px;letter-spacing:1px;transition:all .2s;text-transform:uppercase}
+.btn-ico:hover{border-color:var(--red);color:var(--red)}
+
+.toolbar{background:var(--surf2);border-bottom:1px solid var(--bord);padding:10px 1.5rem;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.srch{flex:1;min-width:180px;position:relative}
+.srch input{width:100%;padding:9px 14px 9px 34px;background:var(--surf3);border:1px solid var(--bord);color:#ddd;font-family:inherit;font-size:13px;outline:none;transition:border-color .2s}
+.srch input:focus{border-color:var(--red)}
+.srch-ic{position:absolute;left:11px;top:50%;transform:translateY(-50%);font-size:14px;color:#666}
+.flt{padding:9px 10px;background:var(--surf3);border:1px solid var(--bord);color:#ddd;font-family:inherit;font-size:11px;cursor:pointer;outline:none;letter-spacing:1px}
+.flt:focus{border-color:var(--red)}
+.btn-add{padding:9px 16px;background:var(--red);border:none;color:#fff;font-family:inherit;font-size:11px;letter-spacing:2px;text-transform:uppercase;cursor:pointer;transition:background .2s;white-space:nowrap}
+.btn-add:hover{background:var(--red2)}
+
+.stats-bar{background:var(--surf);border-bottom:1px solid var(--bord);padding:7px 1.5rem;display:flex;gap:20px;flex-wrap:wrap}
 .si{font-size:11px;color:#888;letter-spacing:1px}
 .si span{color:var(--gold);font-weight:700}
-.cat{padding:1.5rem;display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:14px;flex:1}
-.emp{grid-column:1/-1;text-align:center;padding:4rem;color:#666}
-.emp .big{font-size:40px;margin-bottom:10px}
-.emp p{font-size:12px;letter-spacing:1px}
-.mc{background:var(--surf);border:1px solid var(--bord);transition:border-color .2s,transform .15s;cursor:pointer;position:relative}
-.mc:hover{border-color:var(--red);transform:translateY(-2px)}
+
+.catalog{padding:1.5rem;display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:14px;flex:1}
+.empty-st{grid-column:1/-1;text-align:center;padding:4rem;color:#666}
+.empty-st .big{font-size:40px;margin-bottom:10px}
+.empty-st p{font-size:12px;letter-spacing:1px}
+
+.mcard{background:var(--surf);border:1px solid var(--bord);transition:border-color .2s,transform .15s;cursor:pointer;position:relative}
+.mcard:hover{border-color:var(--red);transform:translateY(-2px)}
 .cimg{width:100%;aspect-ratio:2/3;object-fit:cover;display:block;background:var(--surf3)}
 .ciph{width:100%;aspect-ratio:2/3;background:var(--surf3);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:6px;color:#666;font-size:11px}
-.tic{font-size:28px}
-.cbo{padding:9px 11px}
-.ctt{font-size:13px;font-weight:700;color:#fff;margin-bottom:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.cdr{font-size:10px;color:#888;margin-bottom:5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.cm{display:flex;flex-wrap:wrap;gap:3px}
+.ciph .tic{font-size:28px}
+.cbody{padding:9px 11px}
+.ctitle{font-size:13px;font-weight:700;color:#fff;margin-bottom:5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.cmeta{display:flex;flex-wrap:wrap;gap:3px}
 .badge{font-size:9px;padding:2px 5px;letter-spacing:1px;text-transform:uppercase;font-weight:700;border:1px solid}
 .bdvd{background:rgba(192,57,43,.2);border-color:var(--red);color:var(--red2)}
 .bcd{background:rgba(243,156,18,.2);border-color:var(--gold);color:var(--gold)}
-.bjeu{background:rgba(39,174,96,.2);border-color:var(--gcl);color:var(--gcl)}
+.bjeu{background:rgba(39,174,96,.2);border-color:var(--g-cl);color:var(--g-cl)}
 .atout{background:rgba(39,174,96,.2);border-color:#27ae60;color:#2ecc71}
 .a12{background:rgba(241,196,15,.2);border-color:#f1c40f;color:#f1c40f}
 .a16{background:rgba(230,126,34,.2);border-color:#e67e22;color:#e67e22}
@@ -79,26 +84,30 @@ body{font-family:'Courier New',monospace;background:#080810;color:#ddd;min-heigh
 .cqill{background:rgba(231,76,60,.15);border-color:#e74c3c;color:#e74c3c}
 .cprob{background:rgba(230,126,34,.15);border-color:#e67e22;color:#e67e22}
 .bgrav{background:rgba(127,140,141,.15);border-color:#7f8c8d;color:#aaa}
-.cbadge{position:absolute;top:8px;right:8px;background:rgba(0,0,0,.85);border:1px solid var(--gold);color:var(--gold);font-size:10px;padding:2px 7px;font-weight:700;letter-spacing:1px}
-.mov{position:fixed;inset:0;background:rgba(0,0,0,.9);z-index:200;display:none;align-items:flex-start;justify-content:center;overflow-y:auto;padding:1.5rem 1rem}
-.mov.open{display:flex}
-.modal{background:var(--surf);border:1px solid var(--bord);border-top:3px solid var(--red);width:100%;max-width:600px;padding:2rem;margin:auto}
-.mhd{font-size:13px;letter-spacing:3px;text-transform:uppercase;color:#fff;margin-bottom:1.5rem;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--bord);padding-bottom:1rem}
-.bcl{background:none;border:none;color:#888;cursor:pointer;font-size:18px;line-height:1;padding:0;transition:color .2s}
-.bcl:hover{color:var(--red)}
+.copies-badge{position:absolute;top:8px;right:8px;background:rgba(0,0,0,.8);border:1px solid var(--gold);color:var(--gold);font-size:10px;padding:2px 6px;font-weight:700;letter-spacing:1px}
+
+.modal-ov{position:fixed;inset:0;background:rgba(0,0,0,.88);z-index:200;display:none;align-items:flex-start;justify-content:center;overflow-y:auto;padding:1.5rem 1rem}
+.modal-ov.open{display:flex}
+.modal{background:var(--surf);border:1px solid var(--bord);border-top:3px solid var(--red);width:100%;max-width:580px;padding:2rem;position:relative;margin:auto}
+.modal-hd{font-size:13px;letter-spacing:3px;text-transform:uppercase;color:#fff;margin-bottom:1.5rem;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--bord);padding-bottom:1rem}
+.btn-cls{background:none;border:none;color:#888;cursor:pointer;font-size:18px;line-height:1;padding:0;transition:color .2s}
+.btn-cls:hover{color:var(--red)}
+
 .frow{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px}
 .fg{margin-bottom:12px}
 .fg label{display:block;font-size:10px;letter-spacing:2px;color:#888;margin-bottom:5px;text-transform:uppercase}
 .fg input,.fg select{width:100%;padding:8px 10px;background:var(--surf3);border:1px solid var(--bord);color:#ddd;font-family:inherit;font-size:13px;outline:none;transition:border-color .2s}
 .fg input:focus,.fg select:focus{border-color:var(--red)}
 .fg input[type=number]{-moz-appearance:textfield}
+
 .fsec{font-size:10px;letter-spacing:3px;color:var(--red);text-transform:uppercase;margin:16px 0 10px;padding-bottom:6px;border-bottom:1px solid var(--bord)}
+
 .rbg{display:flex;flex-wrap:wrap;gap:5px}
 .rb{padding:6px 11px;border:1px solid var(--bord);background:none;color:#888;cursor:pointer;font-family:inherit;font-size:10px;letter-spacing:1px;text-transform:uppercase;transition:all .15s}
 .rb:hover{border-color:var(--bord2);color:#ccc}
 .rb.r-dvd.on{border-color:var(--red);background:rgba(192,57,43,.2);color:var(--red2)}
 .rb.r-cd.on{border-color:var(--gold);background:rgba(243,156,18,.2);color:var(--gold)}
-.rb.r-jeu.on{border-color:var(--gcl);background:rgba(39,174,96,.2);color:var(--gcl)}
+.rb.r-jeu.on{border-color:var(--g-cl);background:rgba(39,174,96,.2);color:var(--g-cl)}
 .rb.r-tout.on{border-color:#27ae60;background:rgba(39,174,96,.2);color:#2ecc71}
 .rb.r-12.on{border-color:#f1c40f;background:rgba(241,196,15,.2);color:#f1c40f}
 .rb.r-16.on{border-color:#e67e22;background:rgba(230,126,34,.2);color:#e67e22}
@@ -112,127 +121,115 @@ body{font-family:'Courier New',monospace;background:#080810;color:#ddd;min-heigh
 .rb.r-col.on{border-color:#9b59b6;background:rgba(155,89,182,.15);color:#b980e0}
 .rb.r-nor.on{border-color:var(--bord2);background:var(--surf4);color:#ccc}
 .rb.r-ann.on{border-color:var(--gold);background:rgba(243,156,18,.15);color:var(--gold)}
+
 .trow{display:flex;align-items:center;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--bord)}
 .tlbl{font-size:12px;color:#ddd}
 .tog{width:36px;height:20px;border-radius:10px;background:var(--surf3);border:1px solid var(--bord);cursor:pointer;position:relative;transition:background .2s;flex-shrink:0}
 .tog.on{background:var(--red);border-color:var(--red)}
 .tog::after{content:'';position:absolute;width:14px;height:14px;border-radius:50%;background:#fff;top:2px;left:2px;transition:left .2s}
 .tog.on::after{left:18px}
+
 .iprev{width:100%;height:130px;background:var(--surf3);border:2px dashed var(--bord);display:flex;align-items:center;justify-content:center;cursor:pointer;margin-bottom:6px;overflow:hidden;transition:border-color .2s}
 .iprev:hover{border-color:var(--red)}
 .iprev img{width:100%;height:100%;object-fit:contain}
 .iprev-txt{font-size:11px;color:#666;text-align:center;line-height:1.8}
-.bsub{width:100%;padding:12px;background:var(--red);border:none;color:#fff;font-family:inherit;font-size:11px;letter-spacing:3px;text-transform:uppercase;cursor:pointer;margin-top:1rem;transition:background .2s}
-.bsub:hover{background:var(--red2)}
 
-/* DETAIL */
-.dhd{display:flex;gap:1.2rem;margin-bottom:1.2rem;padding-bottom:1.2rem;border-bottom:1px solid var(--bord)}
-.dim{width:110px;min-height:140px;flex-shrink:0;background:var(--surf3);border:1px solid var(--bord);display:flex;align-items:center;justify-content:center;overflow:hidden}
-.dim img{width:100%;height:100%;object-fit:cover}
-.dinf{flex:1;min-width:0}
-.dtt{font-size:16px;font-weight:700;color:#fff;margin-bottom:3px}
-.dsu{font-size:12px;color:#888;margin-bottom:8px;letter-spacing:1px}
-.dbg{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:6px}
-.drow{padding:7px 0;border-bottom:1px solid var(--bord);display:flex;justify-content:space-between;align-items:center}
-.drow:last-child{border:none}
+.btn-sub{width:100%;padding:12px;background:var(--red);border:none;color:#fff;font-family:inherit;font-size:11px;letter-spacing:3px;text-transform:uppercase;cursor:pointer;margin-top:1rem;transition:background .2s}
+.btn-sub:hover{background:var(--red2)}
+
+.det-hd{display:flex;gap:1.2rem;margin-bottom:1.2rem;padding-bottom:1.2rem;border-bottom:1px solid var(--bord)}
+.det-img{width:110px;min-height:140px;flex-shrink:0;background:var(--surf3);border:1px solid var(--bord);display:flex;align-items:center;justify-content:center;overflow:hidden}
+.det-img img{width:100%;height:100%;object-fit:cover}
+.det-inf{flex:1;min-width:0}
+.det-title{font-size:16px;font-weight:700;color:#fff;margin-bottom:4px}
+.det-sub{font-size:12px;color:#888;margin-bottom:10px;letter-spacing:1px}
+.det-bgs{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:8px}
+.det-row{padding:7px 0;border-bottom:1px solid var(--bord);display:flex;justify-content:space-between;align-items:center}
+.det-row:last-child{border:none}
 .dk{font-size:11px;color:#888;letter-spacing:1px;text-transform:uppercase}
 .dv{font-size:12px;color:#ddd;font-weight:700;text-align:right}
 .dv.ok{color:#27ae60}
 .dv.no{color:#e74c3c}
 
-/* STOCK MANAGER */
-.stock-hd{display:flex;align-items:center;justify-content:space-between;margin:1rem 0 8px}
-.stock-title{font-size:10px;letter-spacing:3px;color:var(--red);text-transform:uppercase}
-.stock-total{font-size:12px;color:#888}
-.stock-total span{color:var(--gold);font-weight:700}
-.cop-list{display:flex;flex-direction:column;gap:6px;margin-bottom:10px;max-height:240px;overflow-y:auto}
-.cop-item{background:var(--surf3);border:1px solid var(--bord);padding:10px 12px;display:flex;align-items:center;gap:10px;transition:border-color .2s}
-.cop-item:hover{border-color:var(--bord2)}
-.cop-num{font-size:11px;color:#888;min-width:22px;font-weight:700}
-.cop-badges{display:flex;flex-wrap:wrap;gap:3px;flex:1}
-.cop-del{background:none;border:1px solid #444;color:#888;width:22px;height:22px;cursor:pointer;font-size:14px;display:flex;align-items:center;justify-content:center;transition:all .2s;flex-shrink:0;font-family:inherit}
-.cop-del:hover{border-color:var(--red);color:var(--red)}
-.add-cop-box{background:var(--surf3);border:1px solid var(--bord2);padding:14px;margin-top:4px}
-.add-cop-title{font-size:10px;letter-spacing:2px;color:#888;text-transform:uppercase;margin-bottom:12px}
-.cop-rbg{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:8px}
-.cop-rb{padding:5px 10px;border:1px solid var(--bord);background:none;color:#888;cursor:pointer;font-family:inherit;font-size:10px;letter-spacing:1px;text-transform:uppercase;transition:all .15s}
-.cop-rb:hover{border-color:var(--bord2);color:#ccc}
-.cop-lbl{font-size:10px;color:#888;letter-spacing:2px;text-transform:uppercase;margin-bottom:5px;margin-top:8px}
-.btn-add-cop{width:100%;padding:9px;background:none;border:1px solid var(--gcl);color:var(--gcl);font-family:inherit;font-size:10px;letter-spacing:2px;text-transform:uppercase;cursor:pointer;margin-top:10px;transition:all .2s}
-.btn-add-cop:hover{background:rgba(39,174,96,.15)}
-.bdel{margin-top:10px;padding:9px;background:none;border:1px solid #c0392b;color:#c0392b;font-family:inherit;font-size:10px;letter-spacing:2px;cursor:pointer;text-transform:uppercase;width:100%;transition:all .2s}
-.bdel:hover{background:rgba(192,57,43,.2)}
+.copies-ctrl{display:flex;align-items:center;justify-content:space-between;background:var(--surf3);border:1px solid var(--bord);padding:12px 14px;margin-top:10px}
+.copies-lbl{font-size:11px;letter-spacing:2px;color:#888;text-transform:uppercase}
+.copies-actions{display:flex;align-items:center;gap:12px}
+.copies-num{font-size:22px;font-weight:700;color:var(--gold);min-width:30px;text-align:center}
+.btn-cc{width:30px;height:30px;border:1px solid var(--bord);background:none;color:#ddd;cursor:pointer;font-size:18px;line-height:1;display:flex;align-items:center;justify-content:center;transition:all .2s;font-family:inherit}
+.btn-cc:hover{border-color:var(--red);color:var(--red)}
 
-/* PROFILE */
-.phd{text-align:center;margin-bottom:1.5rem;padding-bottom:1.5rem;border-bottom:1px solid var(--bord)}
-.avlg{width:76px;height:76px;border-radius:50%;background:var(--red);display:flex;align-items:center;justify-content:center;font-size:26px;font-weight:700;color:#fff;margin:0 auto 10px;border:3px solid var(--bord2);overflow:hidden;cursor:pointer;position:relative}
-.avlg img{width:100%;height:100%;object-fit:cover}
-.aved{position:absolute;bottom:0;left:0;right:0;background:rgba(0,0,0,.65);font-size:9px;color:#fff;padding:3px;text-align:center;opacity:0;transition:opacity .2s;letter-spacing:1px}
-.avlg:hover .aved{opacity:1}
+.btn-del{margin-top:10px;padding:9px;background:none;border:1px solid #c0392b;color:#c0392b;font-family:inherit;font-size:10px;letter-spacing:2px;cursor:pointer;text-transform:uppercase;width:100%;transition:all .2s}
+.btn-del:hover{background:rgba(192,57,43,.2)}
+
+.prof-hd{text-align:center;margin-bottom:1.5rem;padding-bottom:1.5rem;border-bottom:1px solid var(--bord)}
+.av-lg{width:76px;height:76px;border-radius:50%;background:var(--red);display:flex;align-items:center;justify-content:center;font-size:26px;font-weight:700;color:#fff;margin:0 auto 10px;border:3px solid var(--bord2);overflow:hidden;cursor:pointer;position:relative}
+.av-lg img{width:100%;height:100%;object-fit:cover}
+.av-edit{position:absolute;bottom:0;left:0;right:0;background:rgba(0,0,0,.65);font-size:9px;color:#fff;padding:3px;text-align:center;opacity:0;transition:opacity .2s;letter-spacing:1px}
+.av-lg:hover .av-edit{opacity:1}
 .pnm{font-size:17px;font-weight:700;color:#fff}
-.psi{font-size:10px;color:#888;letter-spacing:2px;margin-top:3px}
-.psts{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:1.2rem 0}
+.psince{font-size:10px;color:#888;letter-spacing:2px;margin-top:3px}
+.pstats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:1.2rem 0}
 .pst{background:var(--surf3);border:1px solid var(--bord);padding:12px 8px;text-align:center}
-.psn{font-size:21px;font-weight:700;color:var(--gold)}
-.psl{font-size:9px;color:#888;letter-spacing:2px;text-transform:uppercase;margin-top:3px}
-.htt{font-size:10px;letter-spacing:2px;color:#888;text-transform:uppercase;margin-bottom:8px}
+.pst-n{font-size:21px;font-weight:700;color:var(--gold)}
+.pst-l{font-size:9px;color:#888;letter-spacing:2px;text-transform:uppercase;margin-top:3px}
+.hist-ttl{font-size:10px;letter-spacing:2px;color:#888;text-transform:uppercase;margin-bottom:8px}
 .hi{display:flex;align-items:center;gap:9px;padding:7px 0;border-bottom:1px solid var(--bord)}
 .hi:last-child{border:none}
-.hinm{font-size:12px;color:#ddd;flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.hidt{font-size:10px;color:#888}
+.hi-nm{font-size:12px;color:#ddd;flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.hi-dt{font-size:10px;color:#888}
 </style>
 
-<h2 class="sr-only">Clipsou DVD Conquest — Gestion médiathèque avec stock par exemplaire</h2>
+<h2 class="sr-only">Clipsou DVD Conquest — Gestion de médiathèque professionnelle</h2>
 
-<div id="auth">
-  <div class="abox">
-    <div class="alo">
-      <div class="disc"></div>
-      <div class="lmain">CLIPSOU</div>
-      <div class="lsub">DVD CONQUEST</div>
+<div id="auth-screen">
+  <div class="auth-box">
+    <div class="auth-logo">
+      <div class="logo-disc"></div>
+      <div class="logo-main">CLIPSOU</div>
+      <div class="logo-sub">DVD CONQUEST</div>
     </div>
-    <div class="atabs">
-      <button class="atab on" id="tl" onclick="swTab('l')">CONNEXION</button>
-      <button class="atab" id="tr" onclick="swTab('r')">CRÉER UN COMPTE</button>
+    <div class="auth-tabs">
+      <button class="auth-tab active" id="tl" onclick="swTab('login')">CONNEXION</button>
+      <button class="auth-tab" id="tr" onclick="swTab('reg')">CRÉER UN COMPTE</button>
     </div>
     <div id="fl">
-      <div class="fd"><label>Identifiant</label><input id="li" placeholder="identifiant" autocomplete="username"></div>
-      <div class="fd"><label>Mot de passe</label><input type="password" id="lp" placeholder="••••••••" autocomplete="current-password"></div>
-      <button class="bp" onclick="doLogin()">ACCÉDER</button>
+      <div class="field"><label>Identifiant</label><input id="li" placeholder="identifiant" autocomplete="username"></div>
+      <div class="field"><label>Mot de passe</label><input type="password" id="lp" placeholder="••••••••" autocomplete="current-password"></div>
+      <button class="btn-prim" onclick="doLogin()">ACCÉDER</button>
     </div>
     <div id="fr" style="display:none">
-      <div class="fd"><label>Identifiant</label><input id="ru" placeholder="choisissez un identifiant"></div>
-      <div class="fd"><label>Nom affiché</label><input id="rn" placeholder="prénom ou pseudo"></div>
-      <div class="fd"><label>Mot de passe</label><input type="password" id="rp" placeholder="minimum 4 caractères"></div>
-      <button class="bp" onclick="doReg()">CRÉER MON COMPTE</button>
+      <div class="field"><label>Identifiant</label><input id="ru" placeholder="choisissez un identifiant"></div>
+      <div class="field"><label>Nom affiché</label><input id="rn" placeholder="prénom ou pseudo"></div>
+      <div class="field"><label>Mot de passe</label><input type="password" id="rp" placeholder="minimum 4 caractères"></div>
+      <button class="btn-prim" onclick="doReg()">CRÉER MON COMPTE</button>
     </div>
-    <div class="amsg" id="amsg"></div>
+    <div class="auth-msg" id="amsg"></div>
   </div>
 </div>
 
 <div id="app" style="display:none;flex-direction:column;min-height:100vh">
-  <nav class="tb">
-    <div class="tbl">CLIPSOU <span>DVD</span> CONQUEST</div>
-    <div class="tbr">
-      <div class="tbu" onclick="openProf()">
-        <div class="avsm" id="tav"><span id="tin"></span></div>
-        <span class="unm" id="tnm"></span>
+  <nav class="topbar">
+    <div class="topbar-logo">CLIPSOU <span>DVD</span> CONQUEST</div>
+    <div class="topbar-right">
+      <div class="topbar-user" onclick="openProf()">
+        <div class="av-sm" id="tav"><span id="tin"></span></div>
+        <span class="user-nm" id="tnm"></span>
       </div>
-      <button class="bic" onclick="doOut()">DÉCO</button>
+      <button class="btn-ico" onclick="doOut()">DÉCO</button>
     </div>
   </nav>
-  <div class="tlb">
-    <div class="srw">
-      <span class="sic">&#x2315;</span>
-      <input id="si" placeholder="Rechercher titre, réalisateur, style..." oninput="render()">
+  <div class="toolbar">
+    <div class="srch">
+      <span class="srch-ic">&#x2315;</span>
+      <input id="si" placeholder="Rechercher titre, réalisateur, style, édition..." oninput="render()">
     </div>
-    <select class="fls" id="ft" onchange="render()">
+    <select class="flt" id="ft" onchange="render()">
       <option value="">Tout type</option>
       <option value="DVD">DVD</option>
       <option value="CD">CD</option>
       <option value="JEU">Jeu</option>
     </select>
-    <select class="fls" id="fa" onchange="render()">
+    <select class="flt" id="fa" onchange="render()">
       <option value="">Tout âge</option>
       <option value="Tout Public">Tout Public</option>
       <option value="12+">12+</option>
@@ -240,7 +237,7 @@ body{font-family:'Courier New',monospace;background:#080810;color:#ddd;min-heigh
       <option value="18+">18+</option>
       <option value="PR">PR</option>
     </select>
-    <select class="fls" id="fc" onchange="render()">
+    <select class="flt" id="fc" onchange="render()">
       <option value="">Tout état</option>
       <option value="Excellent">Excellent</option>
       <option value="Bien">Bien</option>
@@ -248,31 +245,33 @@ body{font-family:'Courier New',monospace;background:#080810;color:#ddd;min-heigh
       <option value="Quasi Illisible">Quasi Illisible</option>
       <option value="Problème lecture">Problème lecture</option>
     </select>
-    <button class="badd" onclick="openAdd()">+ AJOUTER</button>
+    <button class="btn-add" onclick="openAdd()">+ AJOUTER</button>
   </div>
-  <div class="stb">
-    <div class="si">Titres : <span id="s0">0</span></div>
-    <div class="si">DVD : <span id="s1">0</span></div>
-    <div class="si">CD : <span id="s2">0</span></div>
-    <div class="si">Jeux : <span id="s3">0</span></div>
-    <div class="si">Exemplaires : <span id="s4">0</span></div>
-    <div class="si">Gravés : <span id="s5">0</span></div>
+  <div class="stats-bar">
+    <div class="si">Total : <span id="st">0</span></div>
+    <div class="si">DVD : <span id="sd">0</span></div>
+    <div class="si">CD : <span id="sc">0</span></div>
+    <div class="si">Jeux : <span id="sj">0</span></div>
+    <div class="si">Exemplaires : <span id="se">0</span></div>
+    <div class="si">Gravés : <span id="sg">0</span></div>
   </div>
-  <div class="cat" id="cat"></div>
+  <div class="catalog" id="cat"></div>
 </div>
 
 <!-- ADD MODAL -->
-<div class="mov" id="addM">
+<div class="modal-ov" id="addM">
   <div class="modal">
-    <div class="mhd"><span>AJOUTER UN PRODUIT</span><button class="bcl" onclick="closeAdd()">✕</button></div>
+    <div class="modal-hd"><span>AJOUTER UN PRODUIT</span><button class="btn-cls" onclick="closeAdd()">✕</button></div>
+
     <div class="fsec">VISUEL</div>
     <div class="fg">
       <label>Image du produit</label>
       <div class="iprev" id="iprev" onclick="document.getElementById('ifile').click()">
-        <div class="iprev-txt">📷 Cliquer pour ajouter une image</div>
+        <div class="iprev-txt">&#x1F4F7; Cliquer pour ajouter une image</div>
       </div>
       <input type="file" id="ifile" accept="image/*" style="display:none" onchange="prevImg(this)">
     </div>
+
     <div class="fsec">INFORMATIONS GÉNÉRALES</div>
     <div class="fg"><label>Titre</label><input id="ftit" placeholder="Titre du produit"></div>
     <div class="frow">
@@ -281,8 +280,10 @@ body{font-family:'Courier New',monospace;background:#080810;color:#ddd;min-heigh
     </div>
     <div class="frow">
       <div class="fg" style="margin:0"><label>Style / Genre</label><input id="fgen" placeholder="Action, Rock, FPS..."></div>
-      <div class="fg" style="margin:0"><label>Nb. de disques</label><input id="fdis" type="number" min="1" value="1"></div>
+      <div class="fg" style="margin:0"><label>Nb. d'exemplaires</label><input id="fcop" type="number" min="1" value="1"></div>
     </div>
+    <div class="fg"><label>Nb. de disques</label><input id="fdis" type="number" min="1" value="1" style="max-width:120px"></div>
+
     <div class="fsec">TYPE ET CLASSIFICATION</div>
     <div class="fg">
       <label>Type de produit</label>
@@ -295,13 +296,14 @@ body{font-family:'Courier New',monospace;background:#080810;color:#ddd;min-heigh
     <div class="fg">
       <label>Âge minimum</label>
       <div class="rbg" id="rg-age">
-        <button class="rb r-tout on" data-v="Tout Public" onclick="selR('age',this)">✅ Tout Public</button>
-        <button class="rb r-12" data-v="12+" onclick="selR('age',this)">🟡 12+</button>
-        <button class="rb r-16" data-v="16+" onclick="selR('age',this)">🟠 16+</button>
-        <button class="rb r-18" data-v="18+" onclick="selR('age',this)">🔴 18+</button>
-        <button class="rb r-pr" data-v="PR" onclick="selR('age',this)">🌸 PR</button>
+        <button class="rb r-tout on" data-v="Tout Public" onclick="selR('age',this)">&#x2705; Tout Public</button>
+        <button class="rb r-12" data-v="12+" onclick="selR('age',this)">&#x1F7E1; 12+</button>
+        <button class="rb r-16" data-v="16+" onclick="selR('age',this)">&#x1F7E0; 16+</button>
+        <button class="rb r-18" data-v="18+" onclick="selR('age',this)">&#x1F534; 18+</button>
+        <button class="rb r-pr" data-v="PR" onclick="selR('age',this)">&#x1F338; PR</button>
       </div>
     </div>
+
     <div class="fsec">ÉDITION ET ÉTAT</div>
     <div class="fg">
       <label>Édition</label>
@@ -311,43 +313,39 @@ body{font-family:'Courier New',monospace;background:#080810;color:#ddd;min-heigh
         <button class="rb r-ann" data-v="Année" onclick="selR('edition',this)">Édition Année</button>
       </div>
     </div>
-    <div class="fsec">PREMIER EXEMPLAIRE</div>
     <div class="fg">
-      <label>Forme</label>
-      <div class="rbg" id="rg-form0">
-        <button class="rb on" data-v="Disque seul" onclick="selRG('rg-form0',this)">Disque seul</button>
-        <button class="rb" data-v="Boîte officielle" onclick="selRG('rg-form0',this)">Boîte officielle</button>
-        <button class="rb" data-v="Boîte gravée" onclick="selRG('rg-form0',this)">Boîte gravée</button>
+      <label>État du disque</label>
+      <div class="rbg" id="rg-cond">
+        <button class="rb r-exc on" data-v="Excellent" onclick="selR('cond',this)">&#x1F7E2; Excellent</button>
+        <button class="rb r-bien" data-v="Bien" onclick="selR('cond',this)">&#x1F7E4; Bien</button>
+        <button class="rb r-ray" data-v="Rayé" onclick="selR('cond',this)">&#x1F7E1; Rayé</button>
+        <button class="rb r-qill" data-v="Quasi Illisible" onclick="selR('cond',this)">&#x1F534; Quasi Illisible</button>
+        <button class="rb r-prob" data-v="Problème lecture" onclick="selR('cond',this)">&#x1F7E0; Pb. lecture</button>
       </div>
     </div>
-    <div class="fg">
-      <label>État de cet exemplaire</label>
-      <div class="rbg" id="rg-cond0">
-        <button class="rb r-exc on" data-v="Excellent" onclick="selRG('rg-cond0',this)">🟢 Excellent</button>
-        <button class="rb r-bien" data-v="Bien" onclick="selRG('rg-cond0',this)">🟤 Bien</button>
-        <button class="rb r-ray" data-v="Rayé" onclick="selRG('rg-cond0',this)">🟡 Rayé</button>
-        <button class="rb r-qill" data-v="Quasi Illisible" onclick="selRG('rg-cond0',this)">🔴 Q. Illisible</button>
-        <button class="rb r-prob" data-v="Problème lecture" onclick="selRG('rg-cond0',this)">🟠 Pb. lecture</button>
-      </div>
-    </div>
-    <div class="fsec">OPTIONS GÉNÉRALES</div>
+
+    <div class="fsec">OPTIONS</div>
+    <div class="trow"><span class="tlbl">En boîtier (avec boîte)</span><div class="tog on" id="t-box" onclick="this.classList.toggle('on')"></div></div>
+    <div class="trow"><span class="tlbl">Officiel (pressage commercial)</span><div class="tog on" id="t-off" onclick="this.classList.toggle('on')"></div></div>
+    <div class="trow"><span class="tlbl">Disque gravé (copie)</span><div class="tog" id="t-grav" onclick="this.classList.toggle('on')"></div></div>
     <div class="trow"><span class="tlbl">Fait partie d'une compilation</span><div class="tog" id="t-comp" onclick="this.classList.toggle('on')"></div></div>
-    <button class="bsub" onclick="addProd()">AJOUTER AU CATALOGUE</button>
+
+    <button class="btn-sub" onclick="addProd()">AJOUTER AU CATALOGUE</button>
   </div>
 </div>
 
 <!-- DETAIL MODAL -->
-<div class="mov" id="detM">
+<div class="modal-ov" id="detM">
   <div class="modal">
-    <div class="mhd"><span id="detTT">FICHE PRODUIT</span><button class="bcl" onclick="document.getElementById('detM').classList.remove('open')">✕</button></div>
+    <div class="modal-hd"><span id="det-ttl">FICHE PRODUIT</span><button class="btn-cls" onclick="document.getElementById('detM').classList.remove('open')">✕</button></div>
     <div id="detC"></div>
   </div>
 </div>
 
 <!-- PROFILE MODAL -->
-<div class="mov" id="profM">
+<div class="modal-ov" id="profM">
   <div class="modal">
-    <div class="mhd"><span>MON PROFIL</span><button class="bcl" onclick="document.getElementById('profM').classList.remove('open')">✕</button></div>
+    <div class="modal-hd"><span>MON PROFIL</span><button class="btn-cls" onclick="document.getElementById('profM').classList.remove('open')">✕</button></div>
     <div id="profC"></div>
   </div>
 </div>
@@ -355,49 +353,48 @@ body{font-family:'Courier New',monospace;background:#080810;color:#ddd;min-heigh
 <input type="file" id="avfile" accept="image/*" style="display:none" onchange="chgAv(this)">
 
 <script>
-let users=JSON.parse(localStorage.getItem('cdvd3_u')||'{}');
+let users=JSON.parse(localStorage.getItem('cdvd_u')||'{}');
 let cu=null;
-let rv={type:'DVD',age:'Tout Public',edition:'Normal'};
-let newCopForm={form:'Disque seul',cond:'Excellent'};
+let rv={type:'DVD',age:'Tout Public',cond:'Excellent',edition:'Normal'};
 let imgD=null;
 let detIdx=null;
 
-// new copy state inside detail modal
-let ncForm='Disque seul';
-let ncCond='Excellent';
-
-function sv(){localStorage.setItem('cdvd3_u',JSON.stringify(users))}
+function sv(){localStorage.setItem('cdvd_u',JSON.stringify(users))}
 function gu(){return users[cu]}
 function su(u){users[cu]=u;sv()}
 
 function swTab(t){
-  document.getElementById('tl').classList.toggle('on',t==='l');
-  document.getElementById('tr').classList.toggle('on',t==='r');
-  document.getElementById('fl').style.display=t==='l'?'':'none';
-  document.getElementById('fr').style.display=t==='r'?'':'none';
+  document.getElementById('tl').classList.toggle('active',t==='login');
+  document.getElementById('tr').classList.toggle('active',t==='reg');
+  document.getElementById('fl').style.display=t==='login'?'':'none';
+  document.getElementById('fr').style.display=t==='reg'?'':'none';
   document.getElementById('amsg').textContent='';
 }
-function setAmsg(m,ok){const e=document.getElementById('amsg');e.textContent=m;e.style.color=ok?'#27ae60':'#e74c3c'}
+function amsg(m,ok){const e=document.getElementById('amsg');e.textContent=m;e.style.color=ok?'#27ae60':'#e74c3c'}
+
 function doLogin(){
-  const u=document.getElementById('li').value.trim(),p=document.getElementById('lp').value;
-  if(!u||!p){setAmsg('Remplissez tous les champs.');return}
-  if(!users[u]){setAmsg('Compte introuvable.');return}
-  if(users[u].password!==p){setAmsg('Mot de passe incorrect.');return}
+  const u=document.getElementById('li').value.trim();
+  const p=document.getElementById('lp').value;
+  if(!u||!p){amsg('Remplissez tous les champs.');return}
+  if(!users[u]){amsg('Compte introuvable.');return}
+  if(users[u].password!==p){amsg('Mot de passe incorrect.');return}
   cu=u;startApp();
 }
 function doReg(){
-  const u=document.getElementById('ru').value.trim(),n=document.getElementById('rn').value.trim(),p=document.getElementById('rp').value;
-  if(!u||!n||!p){setAmsg('Remplissez tous les champs.');return}
-  if(p.length<4){setAmsg('Mot de passe trop court.');return}
-  if(users[u]){setAmsg('Identifiant déjà utilisé.');return}
+  const u=document.getElementById('ru').value.trim();
+  const n=document.getElementById('rn').value.trim();
+  const p=document.getElementById('rp').value;
+  if(!u||!n||!p){amsg('Remplissez tous les champs.');return}
+  if(p.length<4){amsg('Mot de passe trop court (4 car. min).');return}
+  if(users[u]){amsg('Identifiant déjà utilisé.');return}
   users[u]={password:p,name:n,created:new Date().toISOString(),products:[],avatar:null};
-  sv();setAmsg('Compte créé !',true);
+  sv();amsg('Compte créé ! Connexion...',true);
   setTimeout(()=>{cu=u;startApp()},700);
 }
-function doOut(){cu=null;document.getElementById('app').style.display='none';document.getElementById('auth').style.display='flex';document.getElementById('amsg').textContent=''}
+function doOut(){cu=null;document.getElementById('app').style.display='none';document.getElementById('auth-screen').style.display='flex';document.getElementById('amsg').textContent=''}
 
 function startApp(){
-  document.getElementById('auth').style.display='none';
+  document.getElementById('auth-screen').style.display='none';
   document.getElementById('app').style.display='flex';
   const u=gu();
   const ini=u.name.split(' ').map(w=>w[0]).join('').toUpperCase().slice(0,2);
@@ -407,18 +404,13 @@ function startApp(){
   render();
 }
 
-function condClass(c){return{Excellent:'cexc',Bien:'cbien','Rayé':'cray','Quasi Illisible':'cqill','Problème lecture':'cprob'}[c]||'cexc'}
-function typeClass(t){return{DVD:'bdvd',CD:'bcd',JEU:'bjeu'}[t]||'bdvd'}
-function ageClass(a){return{'Tout Public':'atout','12+':'a12','16+':'a16','18+':'a18','PR':'apr'}[a]||'atout'}
-function typeIcon(t){return t==='DVD'?'📀':t==='CD'?'💿':'🎮'}
-
-function totalCopies(p){return(p.copies||[]).length}
-function burnedCopies(p){return(p.copies||[]).filter(c=>c.form==='Boîte gravée'||c.form==='Disque gravé').length}
-function worstCond(p){
-  const order=['Excellent','Bien','Rayé','Quasi Illisible','Problème lecture'];
-  let w=0;
-  (p.copies||[]).forEach(c=>{const i=order.indexOf(c.cond);if(i>w)w=i});
-  return order[w];
+function acls(p){
+  return {
+    type:p.type==='DVD'?'bdvd':p.type==='CD'?'bcd':'bjeu',
+    age:{'Tout Public':'atout','12+':'a12','16+':'a16','18+':'a18','PR':'apr'}[p.age]||'atout',
+    cond:{'Excellent':'cexc','Bien':'cbien','Rayé':'cray','Quasi Illisible':'cqill','Problème lecture':'cprob'}[p.condition]||'cexc',
+    icon:p.type==='DVD'?'📀':p.type==='CD'?'💿':'🎮'
+  }
 }
 
 function render(){
@@ -429,40 +421,36 @@ function render(){
   const fc=document.getElementById('fc').value;
   const list=u.products.filter(p=>{
     const m=!q||[p.title,p.genre,p.director,p.edition,p.type,String(p.year||'')].some(x=>(x||'').toLowerCase().includes(q));
-    return m&&(!ft||p.type===ft)&&(!fa||p.age===fa)&&(!fc||(p.copies||[]).some(c=>c.cond===fc));
+    return m&&(!ft||p.type===ft)&&(!fa||p.age===fa)&&(!fc||p.condition===fc);
   });
   const all=u.products;
-  const totEx=all.reduce((a,p)=>a+totalCopies(p),0);
-  const totGrav=all.reduce((a,p)=>a+burnedCopies(p),0);
-  document.getElementById('s0').textContent=all.length;
-  document.getElementById('s1').textContent=all.filter(x=>x.type==='DVD').length;
-  document.getElementById('s2').textContent=all.filter(x=>x.type==='CD').length;
-  document.getElementById('s3').textContent=all.filter(x=>x.type==='JEU').length;
-  document.getElementById('s4').textContent=totEx;
-  document.getElementById('s5').textContent=totGrav;
+  document.getElementById('st').textContent=all.length;
+  document.getElementById('sd').textContent=all.filter(x=>x.type==='DVD').length;
+  document.getElementById('sc').textContent=all.filter(x=>x.type==='CD').length;
+  document.getElementById('sj').textContent=all.filter(x=>x.type==='JEU').length;
+  document.getElementById('se').textContent=all.reduce((a,x)=>a+parseInt(x.copies||1),0);
+  document.getElementById('sg').textContent=all.filter(x=>x.burned).length;
   const cat=document.getElementById('cat');
   if(!list.length){
-    cat.innerHTML=`<div class="emp"><div class="big">💿</div><p>${u.products.length?'AUCUN RÉSULTAT':'CATALOGUE VIDE'}</p><p style="margin-top:6px;font-size:11px;color:#555">Utilisez + AJOUTER pour commencer</p></div>`;
+    cat.innerHTML=`<div class="empty-st"><div class="big">💿</div><p>${u.products.length?'AUCUN RÉSULTAT TROUVÉ':'CATALOGUE VIDE'}</p><p style="margin-top:6px;font-size:11px;color:#555">Utilisez le bouton + AJOUTER pour commencer</p></div>`;
     return;
   }
   cat.innerHTML=list.map(p=>{
     const ri=u.products.indexOf(p);
-    const tc=totalCopies(p);
-    const wc=worstCond(p);
-    const img=p.image?`<img class="cimg" src="${p.image}" alt="${p.title}">`:`<div class="ciph"><div class="tic">${typeIcon(p.type)}</div><div>${p.type}</div></div>`;
+    const c=acls(p);
+    const img=p.image?`<img class="cimg" src="${p.image}" alt="${p.title}">`:`<div class="ciph"><div class="tic">${c.icon}</div><div>${p.type}</div></div>`;
     const year=p.year?` — ${p.year}`:'';
-    const hasBurned=burnedCopies(p)>0;
-    return `<div class="mc" onclick="openDet(${ri})">
+    return `<div class="mcard" onclick="openDet(${ri})">
       ${img}
-      ${tc>1?`<div class="cbadge">×${tc}</div>`:''}
-      <div class="cbo">
-        <div class="ctt">${p.title}</div>
-        <div class="cdr">${p.director?p.director+year:year.slice(4)||'—'}</div>
-        <div class="cm">
-          <span class="badge ${typeClass(p.type)}">${p.type}</span>
-          <span class="badge ${ageClass(p.age)}">${p.age}</span>
-          <span class="badge ${condClass(wc)}">${wc}</span>
-          ${hasBurned?'<span class="badge bgrav">Gravé</span>':''}
+      ${p.copies>1?`<div class="copies-badge">×${p.copies}</div>`:''}
+      <div class="cbody">
+        <div class="ctitle">${p.title}</div>
+        <div style="font-size:10px;color:#888;margin-bottom:5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${p.director?p.director+year:year.slice(4)||'—'}</div>
+        <div class="cmeta">
+          <span class="badge ${c.type}">${p.type}</span>
+          <span class="badge ${c.age}">${p.age}</span>
+          <span class="badge ${c.cond}">${p.condition}</span>
+          ${p.burned?'<span class="badge bgrav">Gravé</span>':''}
           ${p.compilation?'<span class="badge" style="border-color:#5d6d7e;color:#85929e">Compil</span>':''}
           ${p.edition!=='Normal'?`<span class="badge" style="border-color:#7d3c98;color:#b980e0">${p.edition}</span>`:''}
         </div>
@@ -472,25 +460,23 @@ function render(){
 }
 
 function openAdd(){
-  rv={type:'DVD',age:'Tout Public',edition:'Normal'};
+  rv={type:'DVD',age:'Tout Public',cond:'Excellent',edition:'Normal'};
   imgD=null;
   ['ftit','freal','fgen'].forEach(id=>document.getElementById(id).value='');
   document.getElementById('fyear').value='';
+  document.getElementById('fcop').value='1';
   document.getElementById('fdis').value='1';
   document.getElementById('iprev').innerHTML='<div class="iprev-txt">📷 Cliquer pour ajouter une image</div>';
   document.getElementById('ifile').value='';
-  document.getElementById('t-comp').classList.remove('on');
-  ['rg-type','rg-age','rg-edition'].forEach(id=>{
+  ['t-box','t-off'].forEach(id=>document.getElementById(id).classList.add('on'));
+  ['t-grav','t-comp'].forEach(id=>document.getElementById(id).classList.remove('on'));
+  ['rg-type','rg-age','rg-cond','rg-edition'].forEach(id=>{
     document.getElementById(id).querySelectorAll('.rb').forEach(b=>b.classList.remove('on'));
   });
   document.querySelector('#rg-type [data-v="DVD"]').classList.add('on');
   document.querySelector('#rg-age [data-v="Tout Public"]').classList.add('on');
+  document.querySelector('#rg-cond [data-v="Excellent"]').classList.add('on');
   document.querySelector('#rg-edition [data-v="Normal"]').classList.add('on');
-  document.getElementById('rg-form0').querySelectorAll('.rb').forEach(b=>b.classList.remove('on'));
-  document.querySelector('#rg-form0 [data-v="Disque seul"]').classList.add('on');
-  document.getElementById('rg-cond0').querySelectorAll('.rb').forEach(b=>b.classList.remove('on'));
-  document.querySelector('#rg-cond0 [data-v="Excellent"]').classList.add('on');
-  newCopForm={form:'Disque seul',cond:'Excellent'};
   document.getElementById('addM').classList.add('open');
 }
 function closeAdd(){document.getElementById('addM').classList.remove('open')}
@@ -500,145 +486,89 @@ function selR(k,btn){
   btn.classList.add('on');
   rv[k]=btn.dataset.v;
 }
-function selRG(gid,btn){
-  document.getElementById(gid).querySelectorAll('.rb').forEach(b=>b.classList.remove('on'));
-  btn.classList.add('on');
-  if(gid==='rg-form0')newCopForm.form=btn.dataset.v;
-  if(gid==='rg-cond0')newCopForm.cond=btn.dataset.v;
-}
 
 function prevImg(inp){
   const f=inp.files[0];if(!f)return;
   const r=new FileReader();
-  r.onload=e=>{imgD=e.target.result;document.getElementById('iprev').innerHTML=`<img src="${imgD}" style="width:100%;height:100%;object-fit:contain">`};
+  r.onload=e=>{imgD=e.target.result;document.getElementById('iprev').innerHTML=`<img src="${imgD}" style="width:100%;height:100%;object-fit:contain;">`};
   r.readAsDataURL(f);
 }
 
 function addProd(){
   const tit=document.getElementById('ftit').value.trim();
   if(!tit){alert('Veuillez saisir un titre.');return}
-  const firstCopy={id:Date.now(),form:newCopForm.form,cond:newCopForm.cond,addedAt:new Date().toISOString()};
   const p={
-    id:Date.now()+1,title:tit,
+    id:Date.now(),title:tit,
     director:document.getElementById('freal').value.trim(),
     year:document.getElementById('fyear').value||null,
-    type:rv.type,age:rv.age,edition:rv.edition,
+    type:rv.type,age:rv.age,condition:rv.cond,edition:rv.edition,
+    copies:parseInt(document.getElementById('fcop').value)||1,
     discs:parseInt(document.getElementById('fdis').value)||1,
     genre:document.getElementById('fgen').value.trim(),
+    inBox:document.getElementById('t-box').classList.contains('on'),
+    official:document.getElementById('t-off').classList.contains('on'),
+    burned:document.getElementById('t-grav').classList.contains('on'),
     compilation:document.getElementById('t-comp').classList.contains('on'),
-    image:imgD,
-    copies:[firstCopy],
-    addedAt:new Date().toISOString()
+    image:imgD,addedAt:new Date().toISOString()
   };
   const u=gu();u.products.unshift(p);su(u);closeAdd();render();
 }
 
-// DETAIL
-function formBadge(f){
-  const map={'Disque seul':'border-color:#888;color:#bbb','Boîte officielle':'border-color:#3498db;color:#5dade2','Boîte gravée':'border-color:#7f8c8d;color:#aaa'};
-  return `<span class="badge" style="${map[f]||'border-color:#888;color:#bbb'}">${f}</span>`;
-}
-
 function openDet(idx){
   detIdx=idx;
-  ncForm='Disque seul';
-  ncCond='Excellent';
-  _renderDet();
-  document.getElementById('detM').classList.add('open');
-}
-
-function _renderDet(){
-  const p=gu().products[detIdx];
-  if(!p)return;
-  const tc=totalCopies(p);
+  const p=gu().products[idx];
+  const c=acls(p);
   const year=p.year?` (${p.year})`:'';
-  document.getElementById('detTT').textContent=`FICHE — ${p.title.toUpperCase()}`;
-
-  const copList=p.copies.map((c,ci)=>`
-    <div class="cop-item">
-      <span class="cop-num">#${ci+1}</span>
-      <div class="cop-badges">
-        ${formBadge(c.form)}
-        <span class="badge ${condClass(c.cond)}">${c.cond}</span>
-      </div>
-      <button class="cop-del" onclick="delCopy(${ci})" title="Supprimer cet exemplaire">✕</button>
-    </div>`).join('');
-
+  const icon=c.icon;
+  document.getElementById('det-ttl').textContent=`FICHE — ${p.title.toUpperCase()}`;
   document.getElementById('detC').innerHTML=`
-    <div class="dhd">
-      <div class="dim">${p.image?`<img src="${p.image}">`:`<div style="font-size:34px;padding:1rem">${typeIcon(p.type)}</div>`}</div>
-      <div class="dinf">
-        <div class="dtt">${p.title}${year}</div>
-        <div class="dsu">${p.director||'Réalisateur inconnu'}</div>
-        <div class="dbg">
-          <span class="badge ${typeClass(p.type)}">${p.type}</span>
-          <span class="badge ${ageClass(p.age)}">${p.age}</span>
+    <div class="det-hd">
+      <div class="det-img">${p.image?`<img src="${p.image}">`:`<div style="font-size:36px;padding:1rem">${icon}</div>`}</div>
+      <div class="det-inf">
+        <div class="det-title">${p.title}${year}</div>
+        <div class="det-sub">${p.director||'Réalisateur inconnu'}</div>
+        <div class="det-bgs">
+          <span class="badge ${c.type}">${p.type}</span>
+          <span class="badge ${c.age}">${p.age}</span>
+          <span class="badge ${c.cond}">${p.condition}</span>
+          ${p.burned?'<span class="badge bgrav">Gravé</span>':''}
           ${p.edition!=='Normal'?`<span class="badge" style="border-color:#7d3c98;color:#b980e0">${p.edition}</span>`:''}
           ${p.compilation?'<span class="badge" style="border-color:#5d6d7e;color:#85929e">Compil</span>':''}
         </div>
-        <div style="font-size:11px;color:#888">${p.genre||''} — ${p.discs} disque${p.discs>1?'s':''}</div>
+        <div style="font-size:11px;color:#888">${p.genre||''}</div>
       </div>
     </div>
-
-    <div class="stock-hd">
-      <span class="stock-title">STOCK DES EXEMPLAIRES</span>
-      <span class="stock-total">Total : <span>${tc}</span> exemplaire${tc>1?'s':''}</span>
-    </div>
-    <div class="cop-list">${copList||'<div style="font-size:12px;color:#888;padding:8px 0">Aucun exemplaire.</div>'}</div>
-
-    <div class="add-cop-box">
-      <div class="add-cop-title">+ AJOUTER UN EXEMPLAIRE</div>
-      <div class="cop-lbl">Forme</div>
-      <div class="cop-rbg" id="nc-form">
-        <button class="cop-rb ${ncForm==='Disque seul'?'on':''}" data-v="Disque seul" onclick="selNC('form',this)">Disque seul</button>
-        <button class="cop-rb ${ncForm==='Boîte officielle'?'on':''}" data-v="Boîte officielle" onclick="selNC('form',this)">Boîte officielle</button>
-        <button class="cop-rb ${ncForm==='Boîte gravée'?'on':''}" data-v="Boîte gravée" onclick="selNC('form',this)">Boîte gravée</button>
+    <div class="det-row"><span class="dk">Nb. de disques</span><span class="dv">${p.discs}</span></div>
+    <div class="det-row"><span class="dk">En boîtier</span><span class="dv ${p.inBox?'ok':'no'}">${p.inBox?'✔ Oui':'✘ Non'}</span></div>
+    <div class="det-row"><span class="dk">Officiel</span><span class="dv ${p.official?'ok':'no'}">${p.official?'✔ Officiel':'✘ Copie'}</span></div>
+    <div class="det-row"><span class="dk">Disque gravé</span><span class="dv ${p.burned?'no':'ok'}">${p.burned?'✔ Oui':'✘ Non'}</span></div>
+    <div class="det-row"><span class="dk">Ajouté le</span><span class="dv">${new Date(p.addedAt).toLocaleDateString('fr-FR')}</span></div>
+    <div class="copies-ctrl">
+      <span class="copies-lbl">Exemplaires en stock</span>
+      <div class="copies-actions">
+        <button class="btn-cc" onclick="adjCop(-1)" aria-label="Retirer un exemplaire">−</button>
+        <span class="copies-num" id="cop-num">${p.copies}</span>
+        <button class="btn-cc" onclick="adjCop(1)" aria-label="Ajouter un exemplaire">+</button>
       </div>
-      <div class="cop-lbl">État</div>
-      <div class="cop-rbg" id="nc-cond">
-        <button class="cop-rb r-exc ${ncCond==='Excellent'?'on':''}" data-v="Excellent" onclick="selNC('cond',this)">🟢 Excellent</button>
-        <button class="cop-rb r-bien ${ncCond==='Bien'?'on':''}" data-v="Bien" onclick="selNC('cond',this)">🟤 Bien</button>
-        <button class="cop-rb r-ray ${ncCond==='Rayé'?'on':''}" data-v="Rayé" onclick="selNC('cond',this)">🟡 Rayé</button>
-        <button class="cop-rb r-qill ${ncCond==='Quasi Illisible'?'on':''}" data-v="Quasi Illisible" onclick="selNC('cond',this)">🔴 Q. Illisible</button>
-        <button class="cop-rb r-prob ${ncCond==='Problème lecture'?'on':''}" data-v="Problème lecture" onclick="selNC('cond',this)">🟠 Pb. lecture</button>
-      </div>
-      <button class="btn-add-cop" onclick="addCopy()">+ AJOUTER CET EXEMPLAIRE AU STOCK</button>
     </div>
-    <button class="bdel" onclick="delProd(${detIdx})">SUPPRIMER CE PRODUIT ENTIÈREMENT</button>
+    <button class="btn-del" onclick="delProd(${idx})">SUPPRIMER CE PRODUIT</button>
   `;
-
-  // restore active states on cop-rb buttons
-  document.querySelectorAll('#nc-form .cop-rb').forEach(b=>{b.classList.toggle('on',b.dataset.v===ncForm)});
-  document.querySelectorAll('#nc-cond .cop-rb').forEach(b=>{b.classList.toggle('on',b.dataset.v===ncCond)});
+  document.getElementById('detM').classList.add('open');
 }
 
-function selNC(k,btn){
-  const gid=k==='form'?'nc-form':'nc-cond';
-  document.querySelectorAll(`#${gid} .cop-rb`).forEach(b=>b.classList.remove('on'));
-  btn.classList.add('on');
-  if(k==='form')ncForm=btn.dataset.v;
-  else ncCond=btn.dataset.v;
-}
-
-function addCopy(){
+function adjCop(d){
   if(detIdx===null)return;
   const u=gu();
   const p=u.products[detIdx];
-  p.copies.push({id:Date.now(),form:ncForm,cond:ncCond,addedAt:new Date().toISOString()});
-  su(u);render();_renderDet();
-}
-
-function delCopy(ci){
-  if(detIdx===null)return;
-  const u=gu();
-  const p=u.products[detIdx];
-  if(p.copies.length<=1&&!confirm('Supprimer le dernier exemplaire ? Le produit restera dans le catalogue.'))return;
-  p.copies.splice(ci,1);
-  su(u);render();_renderDet();
+  const nv=Math.max(1,parseInt(p.copies)+d);
+  p.copies=nv;
+  su(u);
+  document.getElementById('cop-num').textContent=nv;
+  render();
 }
 
 function delProd(idx){
-  if(!confirm('Supprimer ce produit et tous ses exemplaires ?'))return;
+  if(!confirm('Supprimer ce produit ?'))return;
   const u=gu();u.products.splice(idx,1);su(u);
   document.getElementById('detM').classList.remove('open');
   detIdx=null;render();
@@ -653,19 +583,22 @@ function openProf(){
   const jeu=u.products.filter(x=>x.type==='JEU').length;
   const rec=u.products.slice(0,6);
   const avH=u.avatar?`<img src="${u.avatar}">`:`<span>${ini}</span>`;
-  const hist=rec.length?rec.map(p=>`<div class="hi"><span class="badge ${typeClass(p.type)}" style="font-size:8px;padding:2px 4px">${p.type}</span><span class="hinm">${p.title}</span><span class="hidt">${new Date(p.addedAt).toLocaleDateString('fr-FR')}</span></div>`).join(''):`<p style="font-size:12px;color:#888;padding:8px 0">Aucun ajout pour l'instant.</p>`;
+  const hist=rec.length?rec.map(p=>{
+    const tc=p.type==='DVD'?'bdvd':p.type==='CD'?'bcd':'bjeu';
+    return `<div class="hi"><span class="badge ${tc}" style="font-size:8px;padding:2px 4px">${p.type}</span><span class="hi-nm">${p.title}</span><span class="hi-dt">${new Date(p.addedAt).toLocaleDateString('fr-FR')}</span></div>`;
+  }).join(''):`<p style="font-size:12px;color:#888;padding:8px 0">Aucun ajout pour l'instant.</p>`;
   document.getElementById('profC').innerHTML=`
-    <div class="phd">
-      <div class="avlg" onclick="document.getElementById('avfile').click()">${avH}<div class="aved">MODIFIER</div></div>
+    <div class="prof-hd">
+      <div class="av-lg" onclick="document.getElementById('avfile').click()">${avH}<div class="av-edit">MODIFIER</div></div>
       <div class="pnm">${u.name}</div>
-      <div class="psi">Membre depuis ${since}</div>
+      <div class="psince">Membre depuis ${since}</div>
     </div>
-    <div class="psts">
-      <div class="pst"><div class="psn">${u.products.length}</div><div class="psl">Titres</div></div>
-      <div class="pst"><div class="psn">${dvd}</div><div class="psl">DVD</div></div>
-      <div class="pst"><div class="psn">${cd+jeu}</div><div class="psl">CD / Jeux</div></div>
+    <div class="pstats">
+      <div class="pst"><div class="pst-n">${u.products.length}</div><div class="pst-l">Produits</div></div>
+      <div class="pst"><div class="pst-n">${dvd}</div><div class="pst-l">DVD</div></div>
+      <div class="pst"><div class="pst-n">${cd+jeu}</div><div class="pst-l">CD / Jeux</div></div>
     </div>
-    <div class="htt">Derniers ajouts</div>${hist}
+    <div class="hist-ttl">Derniers ajouts</div>${hist}
   `;
   document.getElementById('profM').classList.add('open');
 }
